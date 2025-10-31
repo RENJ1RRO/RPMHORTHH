@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Снятие выговора с губернатора | Официальное досье</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-dark: #ea580c;
+            --secondary: #dc2626;
+            --accent: #d97706;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(rgba(249, 115, 22, 0.85), rgba(234, 88, 12, 0.85)), url('https://i.postimg.cc/ZYGY6Ryf/photo-2025-11-01-00-07-33.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #f0f0f0;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Stats */
+        .stats {
+            background-color: var(--primary-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .stat-text {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>Снятие выговора</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#checks">Проверки</a></li>
+                        <li><a href="#mp">Мероприятия</a></li>
+                        <li><a href="#rp">РП с составом</a></li>
+                        <li><a href="#grp">ГРП</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Снятие выговора с губернатора</h1>
+            <p>Доказательства эффективной работы и выполнением всех требований.</p>
+            <a href="#checks" class="btn">Изучить материалы</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-text">Проверок гос. фракций</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-text">Мероприятий от организации</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20</div>
+                    <div class="stat-text">РП с составом</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-text">ГРП мероприятия</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checks Section -->
+    <section id="checks">
+        <div class="container">
+            <div class="section-header">
+                <h2>Проверки государственных фракций</h2>
+                <p>Документированные проверки, подтверждающие соблюдение всех нормативных требований</p>
+            </div>
+            <div class="gallery">
+                <!-- Check 1 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/MZmCspck/2025-10-25-19-05-00.png" alt="Проверка 1" class="gallery-img">
+                    <div class="gallery-caption">Проверка от 25.10.2025</div>
+                </div>
+                <!-- Check 2 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/y8k2Yhvp/2025-10-27-17-54-21.png" alt="Проверка 2" class="gallery-img">
+                    <div class="gallery-caption">Проверка от 27.10.2025</div>
+                </div>
+                <!-- Check 3 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/3RHqBsYv/2025-10-27-20-50-00.png" alt="Проверка 3" class="gallery-img">
+                    <div class="gallery-caption">Проверка от 27.10.2025</div>
+                </div>
+                <!-- Check 4 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/prW6NK9V/2025-10-27-21-01-32.png" alt="Проверка 4" class="gallery-img">
+                    <div class="gallery-caption">Проверка от 27.10.2025</div>
+                </div>
+                <!-- Check 5 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/L6sbNBKv/2025-10-31-15-30-23.png" alt="Проверка 5" class="gallery-img">
+                    <div class="gallery-caption">Проверка от 31.10.2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MP Section -->
+    <section id="mp" style="background-color: #fef7ed;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Мероприятия от организации</h2>
+                <p>Активная работа по организации и проведению мероприятий различного формата</p>
+            </div>
+            <div class="gallery">
+                <!-- MP 1 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/ydBf90y6/2025-10-27-18-51-48.png" alt="Мероприятие 1" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 27.10.2025</div>
+                </div>
+                <!-- MP 2 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/8kZyJJJT/2025-10-29-16-13-29.png" alt="Мероприятие 2" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 29.10.2025</div>
+                </div>
+                <!-- MP 3 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/xdVgDL7B/2025-10-30-18-13-39.png" alt="Мероприятие 3" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 30.10.2025</div>
+                </div>
+                <!-- MP 4 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/vTTtLhgw/2025-10-30-21-10-22.png" alt="Мероприятие 4" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 30.10.2025</div>
+                </div>
+                <!-- MP 5 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/PrLMC6kH/eee.png" alt="Мероприятие 5" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 31.10.2025</div>
+                </div>
+                <!-- MP 6 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/qRb8RKbJ/ima22ge.png" alt="Мероприятие 6" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 31.10.2025</div>
+                </div>
+                <!-- MP 7 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/BnTHFkYX/image.png" alt="Мероприятие 7" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 31.10.2025</div>
+                </div>
+                <!-- MP 8 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/xCCzWCfS/Screenshot-20251027-165300-RPM-Roleplay-mobile-launcher.jpg" alt="Мероприятие 8" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 27.10.2025</div>
+                </div>
+                <!-- MP 9 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/cJDmKPC9/Screenshot-20251028-141206-RPM-Roleplay-mobile-launcher.jpg" alt="Мероприятие 9" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 28.10.2025</div>
+                </div>
+                <!-- MP 10 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/g2mqgG67/Screenshot-20251028-161859-RPM-Roleplay-mobile-launcher.jpg" alt="Мероприятие 10" class="gallery-img">
+                    <div class="gallery-caption">Мероприятие от 28.10.2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RP Section -->
+    <section id="rp">
+        <div class="container">
+            <div class="section-header">
+                <h2>РП с составом</h2>
+                <p>Активная работа с составом по проведению ролевых событий на тему фракции</p>
+            </div>
+            <div class="gallery">
+                <!-- RP 1 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/pTbdBLmp/2025-10-29-22-36-58.png" alt="РП с составом 1" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 29.10.2025</div>
+                </div>
+                <!-- RP 2 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/zXtXcjLG/2025-10-29-22-37-49.png" alt="РП с составом 2" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 29.10.2025</div>
+                </div>
+                <!-- RP 3 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/LXpH1QWb/2025-10-29-22-43-08.png" alt="РП с составом 3" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 29.10.2025</div>
+                </div>
+                <!-- RP 4 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Kzx2zkKg/2025-10-29-22-44-43.png" alt="РП с составом 4" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 29.10.2025</div>
+                </div>
+                <!-- RP 5 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/GhH1H12w/2025-10-29-22-48-25.png" alt="РП с составом 5" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 29.10.2025</div>
+                </div>
+                <!-- RP 6 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/jdWGRQgt/2025-10fff29-22-37-49.png" alt="РП с составом 6" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 29.10.2025</div>
+                </div>
+                <!-- RP 7 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/1X8Y5sK2/2025-10-aaa.png" alt="РП с составом 7" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 30.10.2025</div>
+                </div>
+                <!-- RP 8 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/qq6jHQkL/IMG-20251030-025425-093.jpg" alt="РП с составом 8" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 30.10.2025</div>
+                </div>
+                <!-- RP 9 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/kMkd6ptg/IMG-20251030-025500-629.jpg" alt="РП с составом 9" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 30.10.2025</div>
+                </div>
+                <!-- RP 10 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/CLyWLnW7/IMG-20251030-025510-831.jpg" alt="РП с составом 10" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 30.10.2025</div>
+                </div>
+                <!-- RP 11 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/cJ5zqvRx/IMG-20251030-025515-357.jpg" alt="РП с составом 11" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 30.10.2025</div>
+                </div>
+                <!-- RP 12 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/zX1c1ZgV/IMG-20251030-025520-253.jpg" alt="РП с составом 12" class="gallery-img">
+                    <div class="gallery-caption">РП с составом от 30.10.2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRP Section -->
+    <section id="grp" style="background-color: #fef7ed;">
+        <div class="container">
+            <div class="section-header">
+                <h2>ГРП мероприятия</h2>
+                <p>Крупные ролевые мероприятия с участием государственных структур</p>
+            </div>
+            <div class="gallery">
+                <!-- GRP 1 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Z55jTTKF/2025-10-28-19-32-03.png" alt="ГРП мероприятие 1" class="gallery-img">
+                    <div class="gallery-caption">ГРП мероприятие от 28.10.2025</div>
+                </div>
+                <!-- GRP 2 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/jdZQ3GQ0/2025-10-31-18-00-03.png" alt="ГРП мероприятие 2" class="gallery-img">
+                    <div class="gallery-caption">ГРП мероприятие от 31.10.2025</div>
+                </div>
+                <!-- GRP 3 -->
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/XqndQ8rn/2025-10-31-20-08-05.png" alt="ГРП мероприятие 3" class="gallery-img">
+                    <div class="gallery-caption">ГРП мероприятие от 31.10.2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Снятие выговора</h3>
+                    <p>Доказательства эффективной работы губернатора и выполнения всех требований.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Разделы</h3>
+                    <ul>
+                        <li><a href="#checks">Проверки</a></li>
+                        <li><a href="#mp">Мероприятия</a></li>
+                        <li><a href="#rp">РП с составом</a></li>
+                        <li><a href="#grp">ГРП</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Снятие выговора с губернатора. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img src="" alt="" class="modal-img" id="modalImage">
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Image modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeModal = document.querySelector('.close-modal');
+
+        // Add click event to all gallery images
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+            });
+        });
+
+        // Close modal when clicking the X
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
