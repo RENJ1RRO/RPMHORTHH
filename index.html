@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Генерал Аллисер Хорниголд - Биография</title>
+    <title>Лейтенант Аллисер Хорниголд - Кандидат на генерала</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -80,6 +80,17 @@
             font-weight: 300;
             color: var(--accent);
             letter-spacing: 1px;
+        }
+        
+        .candidate-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-top: 20px;
         }
         
         .quick-info {
@@ -267,6 +278,63 @@
             color: var(--accent);
         }
         
+        .potential {
+            background-color: var(--dark-gray);
+        }
+        
+        .potential-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .potential-card {
+            background: var(--gray);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .potential-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #d4af37 0%, #f5e8b0 100%);
+        }
+        
+        .potential-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        
+        .potential-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+        
+        .potential-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .potential-card p {
+            color: var(--accent);
+            line-height: 1.7;
+        }
+        
         .skills {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -445,9 +513,10 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="rank-badge fade-in">ГЕНЕРАЛ АРМИИ</div>
+                <div class="rank-badge fade-in">ЛЕЙТЕНАНТ АРМИИ RPM</div>
                 <h1 class="main-title fade-in">АЛЛИСЕР ХОРНИГОЛД</h1>
-                <p class="tagline fade-in delay-1">Командующий Объединенными Силами RPM</p>
+                <p class="tagline fade-in delay-1">Кандидат на должность генерала</p>
+                <div class="candidate-badge fade-in delay-2">ПРЕТЕНДУЕТ НА ПОСТ ГЕНЕРАЛА</div>
                 <div class="quick-info">
                     <div class="info-item fade-in delay-2">
                         <strong>Место рождения:</strong> RPM
@@ -470,47 +539,47 @@
         <div class="container">
             <h2 class="section-title fade-in">Военная Биография</h2>
             <div class="bio-content">
-                <p class="fade-in">Генерал Аллисер Хорниголд родился в штате RPM в семье с богатыми военными традициями. С ранних лет он проявлял лидерские качества и стратегическое мышление, что предопределило его блестящую военную карьеру.</p>
+                <p class="fade-in">Лейтенант Аллисер Хорниголд родился в штате RPM и с ранних лет проявлял интерес к военной службе и стратегическому мышлению. Его карьера началась с успешного окончания военного училища, где он показал выдающиеся лидерские качества.</p>
                 
-                <p class="fade-in">После окончания элитной военной академии, Хорниголд начал службу в качестве младшего офицера в спецназе. Его выдающиеся способности и безупречная служба быстро привлекли внимание командования. За время службы он прошел все ступени военной иерархии, командуя подразделениями различного уровня.</p>
+                <p class="fade-in">За время службы в звании лейтенанта Хорниголд проявил себя как грамотный командир, способный принимать взвешенные решения в сложных ситуациях. Он успешно командовал взводом, а затем ротой, демонстрируя высокий уровень тактической подготовки.</p>
                 
-                <p class="fade-in">В ходе своей карьеры генерал Хорниголд разработал и внедрил несколько инновационных тактических доктрин, которые значительно повысили боеспособность подчиненных ему частей. Его стратегические решения в ходе многочисленных учений и реальных операций получили высокую оценку командования.</p>
+                <p class="fade-in">Лейтенант Хорниголд разработал и внедрил несколько инновационных методов подготовки личного состава, что значительно повысило боеготовность вверенных ему подразделений. Его подход к командованию сочетает требовательность с заботой о подчиненных.</p>
                 
-                <p class="fade-in">Под руководством генерала Хорниголда были успешно проведены десятки сложных операций, включая антитеррористические миссии, миротворческие операции и мероприятия по обеспечению национальной безопасности. Его подход к командованию сочетает строгую дисциплину с заботой о подчиненных.</p>
+                <p class="fade-in">Будучи лейтенантом, Хорниголд участвовал в планировании и проведении ряда успешных учений, где его подразделения показывали высокие результаты. Его аналитические способности и стратегическое мышление были отмечены вышестоящим командованием.</p>
                 
-                <p class="fade-in">Помимо оперативного командования, генерал Хорниголд внес значительный вклад в развитие военного образования. Он лично курировал программы подготовки офицерского состава и разрабатывал современные учебные курсы для различных родов войск.</p>
+                <p class="fade-in">Опыт службы в различных условиях и на разных должностях позволил лейтенанту Хорниголду сформировать комплексное понимание современных вызовов безопасности и разработать собственное видение развития вооруженных сил.</p>
                 
-                <p class="fade-in">Стратегическое видение и глубокое понимание современных вызовов безопасности позволяют генералу Хорниголду эффективно руководить вверенными ему силами в условиях быстро меняющейся оперативной обстановки.</p>
+                <p class="fade-in">Стремление к профессиональному росту и глубокие знания военного дела делают лейтенанта Хорниголда перспективным кандидатом на повышение до генеральской должности, где его стратегические способности могут быть реализованы в полной мере.</p>
             </div>
         </div>
     </section>
 
     <section class="military-service">
         <div class="container">
-            <h2 class="section-title fade-in">Военная Карьера</h2>
+            <h2 class="section-title fade-in">Опыт Военной Службы</h2>
             <div class="service-grid">
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-star"></i></div>
-                    <h3>Командующий Спецназом</h3>
-                    <p class="position">Генерал-майор</p>
-                    <p class="duration">2 года</p>
-                    <p>Руководство элитными подразделениями специального назначения, проведение сложных операций</p>
+                    <h3>Командир взвода</h3>
+                    <p class="position">Лейтенант</p>
+                    <p class="duration">1 год</p>
+                    <p>Успешное командование взводом в боевых учениях, подготовка личного состава</p>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-fighter-jet"></i></div>
-                    <h3>Командующий Объединенными Силами</h3>
-                    <p class="position">Генерал-лейтенант</p>
-                    <p class="duration">3 года</p>
-                    <p>Координация действий различных родов войск в рамках совместных операций</p>
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>Командир роты</h3>
+                    <p class="position">Лейтенант</p>
+                    <p class="duration">1 год</p>
+                    <p>Руководство ротой, координация действий в рамках батальонных учений</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Начальник Генерального Штаба</h3>
-                    <p class="position">Генерал</p>
+                    <h3>Офицер штаба</h3>
+                    <p class="position">Лейтенант</p>
                     <p class="duration">Текущая позиция</p>
-                    <p>Стратегическое планирование и руководство всеми вооруженными силами региона RPM</p>
+                    <p>Участие в планировании операций, разработка тактических решений</p>
                 </div>
             </div>
         </div>
@@ -518,38 +587,63 @@
 
     <section class="achievements">
         <div class="container">
-            <h2 class="section-title fade-in">Ключевые Достижения</h2>
+            <h2 class="section-title fade-in">Достижения и Награды</h2>
             <div class="achievement-list">
                 <div class="achievement-item fade-in">
                     <div class="achievement-icon"><i class="fas fa-medal"></i></div>
                     <div class="achievement-content">
-                        <h3>Реформа системы подготовки</h3>
-                        <p>Разработал и внедрил современную систему подготовки военных кадров, повысившую эффективность обучения на 40%</p>
+                        <h3>Отличник боевой подготовки</h3>
+                        <p>Награжден за выдающиеся результаты в ходе комплексных учений "Щит RPM"</p>
                     </div>
                 </div>
                 
                 <div class="achievement-item fade-in">
                     <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
                     <div class="achievement-content">
-                        <h3>Успешные миротворческие операции</h3>
-                        <p>Руководил 5 крупными миротворческими миссиями с нулевыми боевыми потерями среди личного состава</p>
+                        <h3>Лучший командир роты</h3>
+                        <p>Признан лучшим командиром роты по итогам годовой проверки</p>
                     </div>
                 </div>
                 
                 <div class="achievement-item fade-in">
                     <div class="achievement-icon"><i class="fas fa-cogs"></i></div>
                     <div class="achievement-content">
-                        <h3>Модернизация вооружения</h3>
-                        <p>Курировал программу технического перевооружения, обеспечившую превосходство вверенных сил в регионе</p>
+                        <h3>Инновации в подготовке</h3>
+                        <p>Разработал и внедрил новую систему тактической подготовки</p>
                     </div>
                 </div>
                 
                 <div class="achievement-item fade-in">
-                    <div class="achievement-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="achievement-icon"><i class="fas fa-award"></i></div>
                     <div class="achievement-content">
-                        <h3>Международное сотрудничество</h3>
-                        <p>Установил прочные партнерские отношения с военными ведомствами 12 стран</p>
+                        <h3>За образцовую службу</h3>
+                        <p>Награжден за безупречную службу и высокий профессионализм</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="potential">
+        <div class="container">
+            <h2 class="section-title fade-in">Потенциал для Генеральской Должности</h2>
+            <div class="potential-grid">
+                <div class="potential-card fade-in">
+                    <div class="potential-icon"><i class="fas fa-chess"></i></div>
+                    <h3>Стратегическое мышление</h3>
+                    <p>Способность анализировать сложные ситуации и разрабатывать эффективные стратегические решения</p>
+                </div>
+                
+                <div class="potential-card fade-in">
+                    <div class="potential-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Лидерские качества</h3>
+                    <p>Доказанная способность вести за собой подчиненных и вдохновлять их на достижение целей</p>
+                </div>
+                
+                <div class="potential-card fade-in">
+                    <div class="potential-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Опыт планирования</h3>
+                    <p>Участие в разработке оперативных планов и тактических решений на уровне штаба</p>
                 </div>
             </div>
         </div>
@@ -560,27 +654,27 @@
             <h2 class="section-title fade-in">Военные Компетенции</h2>
             <div class="skills">
                 <div class="skill-card fade-in">
-                    <div class="skill-icon"><i class="fas fa-chess"></i></div>
-                    <h3>Стратегическое планирование</h3>
-                    <p>Разработка комплексных оперативных планов и долгосрочных стратегий</p>
+                    <div class="skill-icon"><i class="fas fa-tasks"></i></div>
+                    <h3>Тактическое командование</h3>
+                    <p>Управление подразделениями в полевых условиях, организация обороны и наступления</p>
                 </div>
                 
                 <div class="skill-card fade-in">
-                    <div class="skill-icon"><i class="fas fa-users"></i></div>
-                    <h3>Командование и лидерство</h3>
-                    <p>Управление крупными воинскими формированиями в боевых и мирных условиях</p>
+                    <div class="skill-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>Подготовка личного состава</h3>
+                    <p>Организация и проведение боевой подготовки, разработка учебных программ</p>
                 </div>
                 
                 <div class="skill-card fade-in">
-                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Тактическое мышление</h3>
-                    <p>Быстрое принятие решений в условиях неопределенности и ограниченного времени</p>
+                    <div class="skill-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Штабная работа</h3>
+                    <p>Участие в планировании операций, подготовка отчетности и аналитических материалов</p>
                 </div>
                 
                 <div class="skill-card fade-in">
-                    <div class="skill-icon"><i class="fas fa-diploma"></i></div>
-                    <h3>Военная дипломатия</h3>
-                    <p>Ведение переговоров и установление межармейского сотрудничества</p>
+                    <div class="skill-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Взаимодействие</h3>
+                    <p>Координация действий с другими подразделениями и родами войск</p>
                 </div>
             </div>
         </div>
@@ -589,10 +683,10 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo fade-in">ГЕНЕРАЛ АЛЛИСЕР ХОРНИГОЛД</div>
-                <p class="footer-text fade-in">Командующий Объединенными Силами RPM</p>
+                <div class="footer-logo fade-in">ЛЕЙТЕНАНТ АЛЛИСЕР ХОРНИГОЛД</div>
+                <p class="footer-text fade-in">Кандидат на должность генерала армии RPM</p>
                 <div class="military-credo fade-in">
-                    "Сила армии - в дисциплине, мужестве солдат и мудрости командиров"
+                    "Настоящий лидер ведет за собой не приказами, а примером и стратегическим видением"
                 </div>
                 <div class="social-links">
                     <a href="#" class="social-link fade-in"><i class="fab fa-twitter"></i></a>
