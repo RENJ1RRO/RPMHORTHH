@@ -390,6 +390,11 @@
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .class-link select {
+            width: 200px;
         }
 
         .class-link input {
@@ -401,8 +406,11 @@
             color: white;
             border: none;
             border-radius: 5px;
-            padding: 0 15px;
+            padding: 10px 15px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .add-link {
@@ -410,9 +418,12 @@
             color: white;
             border: none;
             border-radius: 5px;
-            padding: 8px 15px;
+            padding: 10px 15px;
             cursor: pointer;
             margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
     </style>
 </head>
@@ -622,6 +633,15 @@
                         <label>Ссылки на проведенные пары:</label>
                         <div id="class-links">
                             <div class="class-link">
+                                <select class="form-control class-subject">
+                                    <option value="math">Математика</option>
+                                    <option value="physics">Физика</option>
+                                    <option value="informatics">Информатика</option>
+                                    <option value="history">История</option>
+                                    <option value="literature">Литература</option>
+                                    <option value="social">Обществознание</option>
+                                    <option value="pe">Физкультура</option>
+                                </select>
                                 <input type="text" class="form-control class-link-input" placeholder="Введите ссылку на пару">
                                 <button type="button" class="remove-link"><i class="fas fa-times"></i></button>
                             </div>
@@ -753,6 +773,17 @@
                     <li>/try Попытка</li>
                 </ul>
             `
+        };
+
+        // Subject names for daily report
+        const subjectNames = {
+            math: "Математика",
+            physics: "Физика", 
+            informatics: "Информатика",
+            history: "История",
+            literature: "Литература",
+            social: "Обществознание",
+            pe: "Физкультура"
         };
 
         // Application state
@@ -1172,6 +1203,17 @@
             const classLinkDiv = document.createElement('div');
             classLinkDiv.className = 'class-link';
             
+            const select = document.createElement('select');
+            select.className = 'form-control class-subject';
+            
+            // Add options for subjects
+            Object.keys(subjectNames).forEach(key => {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = subjectNames[key];
+                select.appendChild(option);
+            });
+            
             const input = document.createElement('input');
             input.type = 'text';
             input.className = 'form-control class-link-input';
@@ -1185,6 +1227,7 @@
                 classLinkDiv.remove();
             });
             
+            classLinkDiv.appendChild(select);
             classLinkDiv.appendChild(input);
             classLinkDiv.appendChild(removeBtn);
             classLinksContainer.appendChild(classLinkDiv);
@@ -1192,9 +1235,15 @@
 
         function generateDailyReport() {
             const date = reportDateInput.value;
-            const classLinks = Array.from(document.querySelectorAll('.class-link-input'))
-                .map(input => input.value.trim())
-                .filter(link => link !== '');
+            const classLinks = Array.from(document.querySelectorAll('.class-link')).map(linkDiv => {
+                const subjectSelect = linkDiv.querySelector('.class-subject');
+                const linkInput = linkDiv.querySelector('.class-link-input');
+                return {
+                    subject: subjectSelect.value,
+                    link: linkInput.value.trim()
+                };
+            }).filter(item => item.link !== '');
+            
             const gradesCount = gradesCountInput.value;
             const studentsAccepted = studentsAcceptedInput.value;
             const studentsScreenshot = studentsScreenshotInput.value;
@@ -1209,8 +1258,8 @@
             report += '```Основная работа за день:```\n';
             report += '`Количество проведённых пар:`\n';
             
-            classLinks.forEach(link => {
-                report += `${link}\n`;
+            classLinks.forEach(item => {
+                report += `${subjectNames[item.subject]}: ${item.link}\n`;
             });
             
             report += `\`Количество выставленных оценок:\`${gradesCount}\n`;
@@ -1220,7 +1269,7 @@
                 report += ` ${studentsScreenshot}\n`;
             }
             
-            report += `\`Количество проведённых мероприятий:\`\n`;
+            report += `\`Количество проведённых мероприятий:\`${eventsCount}\n`;
             
             if (eventsScreenshot) {
                 report += `${eventsScreenshot}\n`;
@@ -1232,8 +1281,9 @@
 
         // Add event listeners for removing class links
         document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('remove-link')) {
-                e.target.parentElement.remove();
+            if (e.target.classList.contains('remove-link') || e.target.parentElement.classList.contains('remove-link')) {
+                const removeBtn = e.target.classList.contains('remove-link') ? e.target : e.target.parentElement;
+                removeBtn.parentElement.remove();
             }
         });
     </script>
